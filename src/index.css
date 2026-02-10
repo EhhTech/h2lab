@@ -233,60 +233,64 @@ a {
   }
 }
 
-/* ── Portfolio grid & cards ────────────────── */
+/* ── Portfolio bento grid & cards ─────────── */
 
-.portfolio-grid {
+.portfolio-bento {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 20px;
 }
 
 @media (min-width: 640px) {
-  .portfolio-grid {
+  .portfolio-bento {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .portfolio-grid {
+  .portfolio-bento {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .portfolio-bento-featured {
+    grid-column: span 2;
   }
 }
 
 .portfolio-card {
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .portfolio-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
-}
-
-.portfolio-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(17, 17, 17, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
-}
-
-.portfolio-card:hover .portfolio-overlay {
-  opacity: 1;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 4px 14px rgba(0, 0, 0, 0.03);
+  border-color: #ddd;
 }
 
 .portfolio-arrow {
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.3s ease;
+}
+
+.portfolio-arrow-wrap {
+  transition: background 0.3s ease;
 }
 
 .portfolio-card:hover .portfolio-arrow {
-  transform: translate(2px, -2px);
+  transform: translate(1px, -1px);
   color: #111 !important;
+}
+
+.portfolio-card:hover .portfolio-arrow-wrap {
+  background: #ebebeb;
+}
+
+.portfolio-card:hover .portfolio-tech {
+  border-color: #e5e5e5;
+  background: #f0f0f0;
 }
 
 /* ── Chatbot bubble pulse ──────────────────── */
