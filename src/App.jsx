@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import MisionVision from './components/MisionVision'
 import Showcase from './components/Showcase'
+import Ofrecemos from './components/Ofrecemos'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -15,6 +16,7 @@ function App() {
         <Hero />
         <MisionVision />
         <Showcase />
+        <Ofrecemos />
         <Portfolio />
         <Contact />
       </main>

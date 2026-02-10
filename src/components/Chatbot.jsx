@@ -33,30 +33,47 @@ const FALLBACK_RESPONSES = [
   'Hubo un inconveniente técnico. Para atención inmediata, escríbenos por WhatsApp al +51 565 909 7415.',
 ]
 
+const MODELS = ['gemini-2.0-flash', 'gemini-2.0-flash-lite', 'gemini-1.5-flash']
+
+function buildHistory(conversationHistory) {
+  return conversationHistory
+    .filter((msg) => msg.id !== 'welcome')
+    .map((msg) => ({
+      role: msg.role === 'bot' ? 'model' : 'user',
+      parts: [{ text: msg.text }],
+    }))
+}
+
+async function tryModel(modelName, userMessage, history) {
+  const model = genAI.getGenerativeModel({ model: modelName })
+  const chat = model.startChat({
+    history: [
+      { role: 'user', parts: [{ text: SYSTEM_PROMPT }] },
+      { role: 'model', parts: [{ text: 'Entendido. Soy el asistente virtual de H2Lab, listo para ayudar.' }] },
+      ...history,
+    ],
+  })
+  const result = await chat.sendMessage(userMessage)
+  return result.response.text()
+}
+
 async function getAIResponse(userMessage, conversationHistory) {
-  try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' })
+  const history = buildHistory(conversationHistory)
 
-    const history = conversationHistory
-      .filter((msg) => msg.id !== 'welcome')
-      .map((msg) => ({
-        role: msg.role === 'bot' ? 'model' : 'user',
-        parts: [{ text: msg.text }],
-      }))
-
-    const chat = model.startChat({
-      history: [
-        { role: 'user', parts: [{ text: SYSTEM_PROMPT }] },
-        { role: 'model', parts: [{ text: 'Entendido. Soy el asistente virtual de H2Lab, listo para ayudar.' }] },
-        ...history,
-      ],
-    })
-
-    const result = await chat.sendMessage(userMessage)
-    return result.response.text()
-  } catch {
-    return FALLBACK_RESPONSES[Math.floor(Math.random() * FALLBACK_RESPONSES.length)]
+  for (const modelName of MODELS) {
+    try {
+      return await tryModel(modelName, userMessage, history)
+    } catch (err) {
+      const isQuota = err?.message?.includes('429') || err?.message?.includes('quota')
+      if (isQuota && modelName !== MODELS[MODELS.length - 1]) {
+        await new Promise((r) => setTimeout(r, 1500))
+        continue
+      }
+      if (!isQuota) break
+    }
   }
+
+  return FALLBACK_RESPONSES[Math.floor(Math.random() * FALLBACK_RESPONSES.length)]
 }
 
 function TypingIndicator() {
