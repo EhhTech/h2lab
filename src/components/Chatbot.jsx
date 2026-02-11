@@ -226,7 +226,6 @@ export default function Chatbot() {
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             onClick={() => setIsOpen(true)}
             className="chatbot-bubble"
-            className="chatbot-bubble"
             style={{
               position: 'fixed',
               bottom: 20,
