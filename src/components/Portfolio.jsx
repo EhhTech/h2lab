@@ -747,6 +747,98 @@ export default function Portfolio() {
                 </div>
               )
             })}
+
+            {/* CTA card */}
+            <motion.a
+              href="#contacto"
+              layout
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.55,
+                ease: [0.22, 1, 0.36, 1],
+                delay: filtered.length * 0.06,
+              }}
+              className="portfolio-bento-cta"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                padding: '48px 32px',
+                borderRadius: 24,
+                border: '2px dashed #e0e0e0',
+                background: 'linear-gradient(145deg, #fafafa, #f5f5f5)',
+                textDecoration: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+                minHeight: 200,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#111'
+                e.currentTarget.style.background = '#111'
+                e.currentTarget.querySelector('.cta-title').style.color = '#fff'
+                e.currentTarget.querySelector('.cta-desc').style.color = 'rgba(255,255,255,0.6)'
+                e.currentTarget.querySelector('.cta-arrow').style.background = 'rgba(255,255,255,0.15)'
+                e.currentTarget.querySelector('.cta-arrow').style.color = '#fff'
+                e.currentTarget.style.transform = 'translateY(-5px)'
+                e.currentTarget.style.boxShadow = '0 20px 60px rgba(0,0,0,0.15)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = '#e0e0e0'
+                e.currentTarget.style.background = 'linear-gradient(145deg, #fafafa, #f5f5f5)'
+                e.currentTarget.querySelector('.cta-title').style.color = '#111'
+                e.currentTarget.querySelector('.cta-desc').style.color = '#999'
+                e.currentTarget.querySelector('.cta-arrow').style.background = '#f0f0f0'
+                e.currentTarget.querySelector('.cta-arrow').style.color = '#888'
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              <div
+                className="cta-arrow"
+                style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: 14,
+                  background: '#f0f0f0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: 20,
+                  color: '#888',
+                  transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+                }}
+              >
+                <ArrowUpRight size={22} />
+              </div>
+              <h3
+                className="cta-title"
+                style={{
+                  fontSize: 20,
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
+                  color: '#111',
+                  marginBottom: 8,
+                  transition: 'color 0.4s',
+                }}
+              >
+                Y muchos mas en camino
+              </h3>
+              <p
+                className="cta-desc"
+                style={{
+                  fontSize: 14,
+                  color: '#999',
+                  lineHeight: 1.6,
+                  maxWidth: 240,
+                  transition: 'color 0.4s',
+                }}
+              >
+                Tu proyecto puede ser el siguiente. Hagamoslo realidad.
+              </p>
+            </motion.a>
           </motion.div>
         </AnimatePresence>
       </div>

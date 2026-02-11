@@ -302,7 +302,8 @@ a {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .portfolio-bento-featured {
+  .portfolio-bento-featured,
+  .portfolio-bento-cta {
     grid-column: span 2;
   }
 }
