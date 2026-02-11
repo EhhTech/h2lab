@@ -267,7 +267,7 @@ export default function Showcase() {
                   </div>
 
                   {/* Mock content */}
-                  <div style={{ padding: '32px 32px 36px' }}>
+                  <div className="showcase-mock-content" style={{ padding: '24px 20px 28px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 28 }}>
                       <div style={{
                         width: 48,

@@ -226,12 +226,13 @@ export default function Chatbot() {
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             onClick={() => setIsOpen(true)}
             className="chatbot-bubble"
+            className="chatbot-bubble"
             style={{
               position: 'fixed',
-              bottom: 28,
-              right: 28,
-              width: 60,
-              height: 60,
+              bottom: 20,
+              right: 20,
+              width: 56,
+              height: 56,
               borderRadius: '50%',
               background: '#111',
               color: '#fff',
@@ -259,21 +260,15 @@ export default function Chatbot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.85, y: 20 }}
             transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+            className="chatbot-panel"
             style={{
               position: 'fixed',
-              bottom: 28,
-              right: 28,
-              width: 380,
-              height: 540,
-              maxHeight: 'calc(100vh - 56px)',
-              maxWidth: 'calc(100vw - 56px)',
               zIndex: 1000,
               display: 'flex',
               flexDirection: 'column',
               overflow: 'hidden',
               background: '#fff',
               border: '1px solid #e5e5e5',
-              borderRadius: 24,
               boxShadow: '0 16px 64px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.04)',
             }}
           >

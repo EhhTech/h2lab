@@ -28,10 +28,11 @@ export default function Ofrecemos() {
   return (
     <section
       style={{
-        padding: '120px 24px',
+        padding: '80px 20px',
         background: '#fff',
         overflow: 'hidden',
       }}
+      className="ofrecemos-section"
     >
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         {/* Section header */}
@@ -187,12 +188,12 @@ export default function Ofrecemos() {
 
           {/* Video placeholder — replace the inner content with your <video> or <iframe> */}
           <div
-            className="card-elevated"
+            className="card-elevated video-placeholder"
             style={{
               position: 'relative',
               width: '100%',
               aspectRatio: '16 / 9',
-              borderRadius: 24,
+              borderRadius: 20,
               overflow: 'hidden',
               background: 'linear-gradient(135deg, #f5f5f5 0%, #ebebeb 100%)',
               cursor: 'pointer',

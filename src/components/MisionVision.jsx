@@ -94,7 +94,7 @@ export default function MisionVision() {
                 style={{
                   position: 'relative',
                   zIndex: i + 1,
-                  padding: '44px 40px',
+                  padding: '36px 28px',
                   cursor: 'default',
                   transition: 'box-shadow 0.3s',
                 }}

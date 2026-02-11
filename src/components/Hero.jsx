@@ -165,7 +165,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
           style={{
-            marginTop: 80,
+            marginTop: 48,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

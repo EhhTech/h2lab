@@ -55,8 +55,8 @@ export default function Contact() {
         >
           <form
             onSubmit={handleSubmit}
-            className="card-elevated"
-            style={{ padding: '40px 36px' }}
+            className="card-elevated contact-form"
+            style={{ padding: '36px 28px' }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               <div>

@@ -20,16 +20,18 @@ export default function Navbar() {
         scrolledRef.current = past
         setScrolled(past)
       }
+      // Close mobile menu on scroll
+      if (menuOpen) setMenuOpen(false)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [menuOpen])
 
   return (
     <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50 }}>
       <div
         style={{
-          padding: scrolled ? '12px 24px 0' : '0',
+          padding: scrolled ? '8px 16px 0' : '0',
           willChange: 'padding',
           transition: 'padding 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
@@ -39,7 +41,7 @@ export default function Navbar() {
             position: 'relative',
             maxWidth: scrolled ? 680 : '100%',
             margin: '0 auto',
-            padding: scrolled ? '10px 28px' : '20px 40px',
+            padding: scrolled ? '10px 20px' : '16px 20px',
             borderRadius: scrolled ? 100 : 0,
             display: 'flex',
             alignItems: 'center',
@@ -113,7 +115,16 @@ export default function Navbar() {
             className="md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
-            style={{ position: 'relative', padding: 8, color: '#888' }}
+            style={{
+              position: 'relative',
+              padding: 8,
+              color: '#888',
+              minWidth: 44,
+              minHeight: 44,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -147,8 +158,8 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               style={{
                 display: 'block',
-                padding: '12px 0',
-                fontSize: 14,
+                padding: '14px 0',
+                fontSize: 15,
                 fontWeight: 500,
                 color: '#666',
                 textDecoration: 'none',
