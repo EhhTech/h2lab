@@ -13,7 +13,7 @@ Información sobre H2Lab:
 - Proceso: escuchamos la idea → diseñamos solución → desarrollamos con tecnología de punta → acompañamos post-lanzamiento.
 - Todos los proyectos incluyen garantía, soporte técnico y documentación.
 - Tiempos: una app básica 4-6 semanas, sistemas complejos 3-4 meses.
-- Contacto WhatsApp: +51 565 909 7415
+- Contacto WhatsApp: +52 565 909 7415
 
 Reglas:
 - Responde siempre en español, de forma breve y profesional (máximo 2-3 oraciones).
@@ -30,7 +30,7 @@ const WELCOME_MESSAGE = {
 
 const FALLBACK_RESPONSES = [
   'Disculpa, tuve un problema al procesar tu mensaje. ¿Podrías intentar de nuevo?',
-  'Hubo un inconveniente técnico. Para atención inmediata, escríbenos por WhatsApp al +51 565 909 7415.',
+  'Hubo un inconveniente técnico. Para atención inmediata, escríbenos por WhatsApp al +52 565 909 7415.',
 ]
 
 const MODELS = ['gemini-2.0-flash', 'gemini-2.0-flash-lite', 'gemini-1.5-flash']

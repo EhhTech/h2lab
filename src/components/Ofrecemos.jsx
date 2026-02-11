@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Zap, Shield, Headphones, RefreshCw, Play } from 'lucide-react'
+import { Zap, Shield, Headphones, RefreshCw } from 'lucide-react'
 
 const features = [
   {
@@ -186,7 +186,7 @@ export default function Ofrecemos() {
             </p>
           </div>
 
-          {/* Video placeholder — replace the inner content with your <video> or <iframe> */}
+          {/* YouTube video embed — reemplaza VIDEO_ID con tu ID de YouTube */}
           <div
             className="card-elevated video-placeholder"
             style={{
@@ -195,106 +195,16 @@ export default function Ofrecemos() {
               aspectRatio: '16 / 9',
               borderRadius: 20,
               overflow: 'hidden',
-              background: 'linear-gradient(135deg, #f5f5f5 0%, #ebebeb 100%)',
-              cursor: 'pointer',
+              background: '#000',
             }}
           >
-            {/*
-              ╔════════════════════════════════════════════════════════╗
-              ║  VIDEO PLACEHOLDER                                    ║
-              ║  Reemplaza este div con tu <video> o <iframe>         ║
-              ║                                                        ║
-              ║  Ejemplo con video local:                              ║
-              ║  <video src="/video.mp4" controls style={{             ║
-              ║    width:'100%', height:'100%', objectFit:'cover'      ║
-              ║  }} />                                                 ║
-              ║                                                        ║
-              ║  Ejemplo con YouTube:                                  ║
-              ║  <iframe src="https://youtube.com/embed/VIDEO_ID"      ║
-              ║    style={{ width:'100%', height:'100%', border:0 }}   ║
-              ║    allow="autoplay; encrypted-media" allowFullScreen   ║
-              ║  />                                                    ║
-              ╚════════════════════════════════════════════════════════╝
-            */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 16,
-              }}
-            >
-              {/* Play button */}
-              <motion.div
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  width: 72,
-                  height: 72,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: '#111',
-                  borderRadius: '50%',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
-                }}
-              >
-                <Play
-                  size={28}
-                  style={{ color: '#fff', marginLeft: 3 }}
-                  fill="#fff"
-                />
-              </motion.div>
-              <span
-                style={{
-                  fontSize: 13,
-                  fontWeight: 500,
-                  color: '#aaa',
-                  letterSpacing: '0.05em',
-                }}
-              >
-                Video promocional
-              </span>
-            </div>
-
-            {/* Decorative corner dots */}
-            <div
-              style={{
-                position: 'absolute',
-                top: 24,
-                left: 24,
-                display: 'flex',
-                gap: 6,
-              }}
-            >
-              <div
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: '50%',
-                  background: '#e0e0e0',
-                }}
-              />
-              <div
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: '50%',
-                  background: '#e8e8e8',
-                }}
-              />
-              <div
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: '50%',
-                  background: '#f0f0f0',
-                }}
-              />
-            </div>
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID"
+              title="Video promocional H2Lab"
+              style={{ width: '100%', height: '100%', border: 0 }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </motion.div>
       </div>

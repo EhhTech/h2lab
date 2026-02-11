@@ -4,7 +4,7 @@ import {
   Smartphone,
   Globe,
   Monitor,
-  ShoppingBag,
+  Laptop,
   MessageSquare,
   ArrowUpRight,
   Layers,
@@ -14,15 +14,15 @@ const typeIcons = {
   app: Smartphone,
   web: Globe,
   pos: Monitor,
-  ecommerce: ShoppingBag,
+  software: Laptop,
   chatbot: MessageSquare,
 }
 
 const filters = [
   { id: 'all', label: 'Todos', icon: Layers },
   { id: 'app', label: 'Apps', icon: Smartphone },
-  { id: 'ecommerce', label: 'E-commerce', icon: ShoppingBag },
   { id: 'pos', label: 'POS', icon: Monitor },
+  { id: 'software', label: 'Software', icon: Laptop },
   { id: 'chatbot', label: 'Chatbots', icon: MessageSquare },
   { id: 'web', label: 'Web', icon: Globe },
 ]
@@ -30,80 +30,81 @@ const filters = [
 const projects = [
   {
     id: 1,
-    title: 'FoodieApp',
+    title: 'Growthest',
+    type: 'web',
+    typeLabel: 'Pagina Web',
+    description:
+      'Sitio web moderno y funcional desarrollado con WordPress, disenado para transmitir profesionalismo y generar confianza desde el primer clic.',
+    tech: ['WordPress', 'PHP', 'CSS', 'JavaScript'],
+    accent: '#22c55e',
+    gradientFrom: '#f0fdf4',
+    gradientTo: '#dcfce7',
+    status: 'Completado',
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'Menuuu',
     type: 'app',
     typeLabel: 'App Movil',
     description:
-      'App de delivery con seguimiento en tiempo real, pasarela de pagos y panel de administracion.',
-    tech: ['React Native', 'Node.js', 'Firebase'],
+      'App de delivery pensada en restaurantes para eliminar comisiones de intermediarios, con integracion compleja entre app, plataforma web y bases de datos.',
+    tech: ['React Native', 'Expo', 'Node.js'],
+    accent: '#f97316',
+    gradientFrom: '#fff7ed',
+    gradientTo: '#ffedd5',
+    status: 'Fase final',
+  },
+  {
+    id: 3,
+    title: 'FarmPos',
+    type: 'pos',
+    typeLabel: 'Sistema POS',
+    description:
+      'Software POS disenado a medida para una cadena de farmacias que buscaban mejorar su eficiencia y control al gestionar inventario en cada sucursal.',
+    tech: ['React Native', 'Node.js', 'SQLite'],
     accent: '#3b82f6',
     gradientFrom: '#eff6ff',
     gradientTo: '#dbeafe',
     status: 'En produccion',
   },
   {
-    id: 2,
-    title: 'ModaStore',
-    type: 'ecommerce',
-    typeLabel: 'Tienda Online',
-    description:
-      'E-commerce de moda con catalogo inteligente, carrito y gestion de inventario automatizada.',
-    tech: ['Next.js', 'Stripe', 'PostgreSQL'],
-    accent: '#ec4899',
-    gradientFrom: '#fdf2f8',
-    gradientTo: '#fce7f3',
-    status: 'En produccion',
-  },
-  {
-    id: 3,
-    title: 'QuickPOS',
-    type: 'pos',
-    typeLabel: 'Sistema POS',
-    description:
-      'Punto de venta para cadena de restaurantes con reportes en tiempo real y modo offline.',
-    tech: ['Electron', 'React', 'SQLite'],
-    accent: '#22c55e',
-    gradientFrom: '#f0fdf4',
-    gradientTo: '#dcfce7',
-    status: 'En produccion',
-  },
-  {
     id: 4,
-    title: 'AsistBot',
-    type: 'chatbot',
-    typeLabel: 'Chatbot IA',
+    title: 'App ACB',
+    type: 'app',
+    typeLabel: 'App Movil',
     description:
-      'Asistente virtual con IA para atencion al cliente 24/7 integrado con WhatsApp Business.',
-    tech: ['Python', 'Gemini API', 'WhatsApp API'],
-    accent: '#f59e0b',
-    gradientFrom: '#fffbeb',
-    gradientTo: '#fef3c7',
+      'Aplicacion disenada a medida para gestionar cobros y finanzas, desarrollada siguiendo los requerimientos especificos de la empresa contratante.',
+    tech: ['React Native', 'Expo'],
+    accent: '#8b5cf6',
+    gradientFrom: '#f5f3ff',
+    gradientTo: '#ede9fe',
     status: 'En produccion',
   },
   {
     id: 5,
-    title: 'CorpSite Pro',
-    type: 'web',
-    typeLabel: 'Pagina Web',
+    title: 'Lexconnect',
+    type: 'software',
+    typeLabel: 'Software Desktop',
     description:
-      'Sitio corporativo con panel CMS personalizado, blog y optimizacion SEO avanzada.',
-    tech: ['React', 'Tailwind', 'Sanity'],
-    accent: '#8b5cf6',
-    gradientFrom: '#f5f3ff',
-    gradientTo: '#ede9fe',
-    status: 'Reciente',
-  },
-  {
-    id: 6,
-    title: 'HealthTrack',
-    type: 'app',
-    typeLabel: 'App Movil',
-    description:
-      'App de telemedicina con agenda de citas, videollamadas y expediente digital del paciente.',
-    tech: ['Flutter', 'Firebase', 'WebRTC'],
+      'Software disenado a medida para Windows y Mac, pensado para mejorar la eficiencia y rapidez en el flujo de trabajo diario de abogados.',
+    tech: ['Electron', 'React', 'Node.js'],
     accent: '#14b8a6',
     gradientFrom: '#f0fdfa',
     gradientTo: '#ccfbf1',
+    status: 'En produccion',
+  },
+  {
+    id: 6,
+    title: 'Chatbot Farmacias',
+    type: 'chatbot',
+    typeLabel: 'Chatbot IA',
+    description:
+      'Chatbot inteligente disenado para una cadena de farmacias, enfocado en mejorar la atencion al cliente y aumentar el numero de ventas.',
+    tech: ['Python', 'Gemini API', 'WhatsApp API'],
+    accent: '#f59e0b',
+    gradientFrom: '#fffbeb',
+    gradientTo: '#fef3c7',
     status: 'En produccion',
   },
 ]
@@ -337,7 +338,7 @@ function PreviewContent({ project }) {
     )
   }
 
-  if (type === 'ecommerce' || type === 'web') {
+  if (type === 'software' || type === 'web') {
     return (
       <div style={common}>
         <BrowserMockup accent={accent} wide />

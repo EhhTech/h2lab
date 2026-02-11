@@ -15,7 +15,7 @@ export default function Contact() {
     const whatsappText = encodeURIComponent(
       `Hola, soy ${nombre} (${email}). ${mensaje}`
     )
-    window.open(`https://wa.me/515659097415?text=${whatsappText}`, '_blank')
+    window.open(`https://wa.me/525659097415?text=${whatsappText}`, '_blank')
   }
 
   return (
@@ -125,7 +125,7 @@ export default function Contact() {
               </button>
 
               <a
-                href="https://wa.me/515659097415"
+                href="https://wa.me/525659097415"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"
