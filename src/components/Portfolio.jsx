@@ -40,7 +40,6 @@ const projects = [
     gradientFrom: '#eff6ff',
     gradientTo: '#dbeafe',
     status: 'En produccion',
-    featured: true,
   },
   {
     id: 2,
@@ -80,7 +79,6 @@ const projects = [
     gradientFrom: '#fffbeb',
     gradientTo: '#fef3c7',
     status: 'En produccion',
-    featured: true,
   },
   {
     id: 5,

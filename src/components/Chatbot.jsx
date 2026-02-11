@@ -64,12 +64,17 @@ async function getAIResponse(userMessage, conversationHistory) {
     try {
       return await tryModel(modelName, userMessage, history)
     } catch (err) {
-      const isQuota = err?.message?.includes('429') || err?.message?.includes('quota')
-      if (isQuota && modelName !== MODELS[MODELS.length - 1]) {
+      const msg = err?.message || ''
+      const isQuota = msg.includes('429') || msg.includes('quota') || msg.includes('Resource has been exhausted')
+      const isRetryable = isQuota || msg.includes('503') || msg.includes('unavailable')
+
+      if (isRetryable && modelName !== MODELS[MODELS.length - 1]) {
         await new Promise((r) => setTimeout(r, 1500))
         continue
       }
-      if (!isQuota) break
+
+      // Non-retryable errors (400 invalid key, 403 forbidden, etc.) — break immediately
+      break
     }
   }
 
