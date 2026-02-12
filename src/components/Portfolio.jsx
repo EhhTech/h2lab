@@ -41,6 +41,7 @@ const projects = [
     gradientTo: '#dcfce7',
     status: 'Completado',
     featured: true,
+    image: '/portfolio/growthest.JPG',
   },
   {
     id: 2,
