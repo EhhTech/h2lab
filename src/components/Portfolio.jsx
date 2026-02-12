@@ -54,6 +54,7 @@ const projects = [
     gradientFrom: '#fff7ed',
     gradientTo: '#ffedd5',
     status: 'Fase final',
+    image: '/portfolio/menuuu.PNG',
   },
   {
     id: 3,
@@ -80,6 +81,7 @@ const projects = [
     gradientFrom: '#f5f3ff',
     gradientTo: '#ede9fe',
     status: 'En produccion',
+    image: '/portfolio/acb.PNG',
   },
   {
     id: 5,
@@ -96,16 +98,17 @@ const projects = [
   },
   {
     id: 6,
-    title: 'Chatbot Farmacias',
+    title: 'Chatbot H2Lab',
     type: 'chatbot',
     typeLabel: 'Chatbot IA',
     description:
-      'Chatbot inteligente disenado para una cadena de farmacias, enfocado en mejorar la atencion al cliente y aumentar el numero de ventas.',
-    tech: ['Python', 'Gemini API', 'WhatsApp API'],
+      'Nuestro propio chatbot con IA integrado en esta web, disenado para atender consultas al instante. Pruebalo tu mismo haciendo clic en el icono de chat.',
+    tech: ['React', 'Gemini API', 'Node.js'],
     accent: '#f59e0b',
     gradientFrom: '#fffbeb',
     gradientTo: '#fef3c7',
     status: 'En produccion',
+    image: '/portfolio/chatbot.PNG',
   },
 ]
 
@@ -305,8 +308,57 @@ function ChatMockup({ accent }) {
   )
 }
 
+function PhoneFrame({ image, accent }) {
+  return (
+    <div
+      style={{
+        width: 80,
+        height: 160,
+        borderRadius: 18,
+        background: '#fff',
+        border: '3px solid #e0e0e0',
+        padding: 4,
+        boxShadow: `0 12px 32px rgba(0,0,0,0.1), 0 0 0 1px ${accent}10`,
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <div style={{ width: 24, height: 3, borderRadius: 4, background: '#e5e5e5', margin: '2px auto 3px', flexShrink: 0 }} />
+      <div style={{ flex: 1, borderRadius: 12, overflow: 'hidden', background: '#f5f5f5' }}>
+        <img src={image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+      </div>
+    </div>
+  )
+}
+
+function BrowserFrame({ image, accent }) {
+  return (
+    <div
+      style={{
+        width: 180,
+        borderRadius: 12,
+        background: '#fff',
+        border: '3px solid #e0e0e0',
+        boxShadow: `0 12px 32px rgba(0,0,0,0.1), 0 0 0 1px ${accent}10`,
+        overflow: 'hidden',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '6px 10px', borderBottom: '1px solid #f0f0f0' }}>
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fca5a5' }} />
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fde68a' }} />
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#86efac' }} />
+        <div style={{ flex: 1, height: 10, borderRadius: 100, background: '#f5f5f5', marginLeft: 6 }} />
+      </div>
+      <div style={{ aspectRatio: '16 / 10', overflow: 'hidden', background: '#f5f5f5' }}>
+        <img src={image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+      </div>
+    </div>
+  )
+}
+
 function PreviewContent({ project }) {
-  const { type, accent } = project
+  const { type, accent, image } = project
 
   const common = {
     position: 'relative',
@@ -318,21 +370,31 @@ function PreviewContent({ project }) {
     gap: 12,
   }
 
+  // Projects with real screenshots
+  if (image && (type === 'app' || type === 'chatbot')) {
+    return (
+      <div style={common}>
+        <PhoneFrame image={image} accent={accent} />
+      </div>
+    )
+  }
+
+  if (image && (type === 'web' || type === 'software' || type === 'pos')) {
+    return (
+      <div style={common}>
+        <BrowserFrame image={image} accent={accent} />
+      </div>
+    )
+  }
+
+  // Fallback: abstract mockups for projects without images
   if (type === 'app') {
     return (
       <div style={common}>
         <PhoneMockup accent={accent} />
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <WidgetMockup accent={accent} />
-          <div
-            style={{
-              width: 80,
-              height: 20,
-              borderRadius: 6,
-              background: accent,
-              opacity: 0.1,
-            }}
-          />
+          <div style={{ width: 80, height: 20, borderRadius: 6, background: accent, opacity: 0.1 }} />
         </div>
       </div>
     )
@@ -353,15 +415,7 @@ function PreviewContent({ project }) {
         <BrowserMockup accent={accent} wide />
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           <WidgetMockup accent={accent} />
-          <div
-            style={{
-              width: 80,
-              height: 16,
-              borderRadius: 100,
-              background: accent,
-              opacity: 0.12,
-            }}
-          />
+          <div style={{ width: 80, height: 16, borderRadius: 100, background: accent, opacity: 0.12 }} />
         </div>
       </div>
     )
