@@ -512,6 +512,66 @@ a {
   animation: none;
 }
 
+/* ── Newsletter dark input placeholder ──────── */
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ── Article body typography ─────────────────── */
+
+.article-body p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.article-body h2 {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111;
+  margin: 48px 0 16px;
+}
+
+.article-body ul {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.article-body ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #444;
+}
+
+.article-body ul li::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #bbb;
+  margin-top: 9px;
+}
+
+.article-body .lead {
+  font-size: 19px;
+  line-height: 1.75;
+  color: #555;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
 /* ── Scrollbar ─────────────────────────────── */
 
 ::-webkit-scrollbar {

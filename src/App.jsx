@@ -6,7 +6,6 @@ import Ofrecemos       from './components/Ofrecemos'
 import Portfolio       from './components/Portfolio'
 import DarkSection     from './components/DarkSection'
 import Blog            from './components/Blog'
-import Novedades       from './components/Novedades'
 import Contact         from './components/Contact'
 import Footer          from './components/Footer'
 import Chatbot         from './components/Chatbot'
@@ -24,7 +23,6 @@ function App() {
         <Portfolio />
         <DarkSection />
         <Blog />
-        <Novedades />
         <Contact />
       </main>
       <Footer />
