@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, Clock } from 'lucide-react'
 import { blogPosts } from '../data/blogPosts'
 import ArticleModal from './ArticleModal'
+import SectionHeader from './SectionHeader'
 
 export default function Blog() {
   const [selected, setSelected] = useState(null)
@@ -19,41 +20,14 @@ export default function Blog() {
       >
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
 
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'flex-end',
-              justifyContent: 'space-between',
-              gap: 24,
-              marginBottom: 56,
-            }}
-          >
-            <div>
-              <div className="section-tag" style={{ marginBottom: 12 }}>
-                05 &mdash; Blog
-              </div>
-              <h2
-                style={{
-                  fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-                  fontWeight: 700,
-                  letterSpacing: '-0.02em',
-                  color: '#111',
-                  lineHeight: 1.15,
-                }}
-              >
-                Recursos y perspectivas
-              </h2>
-              <p style={{ marginTop: 14, fontSize: 16, color: '#999', maxWidth: 420, lineHeight: 1.65 }}>
-                Ideas, guías y reflexiones sobre tecnología y negocios digitales.
-              </p>
-            </div>
-          </motion.div>
+          <SectionHeader
+            tag="05 — Blog"
+            title="Recursos y perspectivas"
+            subtitle="Ideas, guías y reflexiones sobre tecnología y negocios digitales."
+            mb={56}
+            maxWidth={420}
+            align="left"
+          />
 
           {/* Cards grid */}
           <div

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, MessageCircle } from 'lucide-react'
+import SectionHeader from './SectionHeader'
 
 export default function Contact() {
   const [form, setForm] = useState({ nombre: '', email: '', mensaje: '' })
@@ -27,24 +28,12 @@ export default function Contact() {
       }}
     >
       <div style={{ maxWidth: 580, margin: '0 auto' }}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ textAlign: 'center', marginBottom: 48 }}
-        >
-          <div className="section-tag" style={{ justifyContent: 'center', marginBottom: 12 }}>
-            06 &mdash; Contacto
-          </div>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 700, letterSpacing: '-0.02em', color: '#111' }}>
-            Convierte tu idea en software
-          </h2>
-          <p style={{ marginTop: 16, fontSize: 16, color: '#999' }}>
-            Desarrollo 100% a medida, sin plantillas. Cuentanos tu proyecto.
-          </p>
-        </motion.div>
+        <SectionHeader
+          tag="06 — Contacto"
+          title="Convierte tu idea en software"
+          subtitle="Desarrollo 100% a medida, sin plantillas. Cuentanos tu proyecto."
+          mb={48}
+        />
 
         {/* Form card */}
         <motion.div

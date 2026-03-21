@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Smartphone, ShoppingBag, Monitor, MessageSquare, Globe } from 'lucide-react'
+import SectionHeader from './SectionHeader'
 
 const tabs = [
   {
@@ -89,24 +90,13 @@ export default function Showcase() {
       }}
     >
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ textAlign: 'center', marginBottom: 56 }}
-        >
-          <div className="section-tag" style={{ justifyContent: 'center', marginBottom: 12 }}>
-            02 &mdash; Nuestros servicios
-          </div>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 700, letterSpacing: '-0.02em', color: '#111' }}>
-            Soluciones a tu medida
-          </h2>
-          <p style={{ marginTop: 16, fontSize: 16, color: '#999', maxWidth: 440, marginLeft: 'auto', marginRight: 'auto' }}>
-            Cada proyecto es unico. Elegimos la tecnologia ideal para tus necesidades.
-          </p>
-        </motion.div>
+        <SectionHeader
+          tag="02 — Nuestros servicios"
+          title="Soluciones a tu medida"
+          subtitle="Cada proyecto es unico. Elegimos la tecnologia ideal para tus necesidades."
+          mb={56}
+          maxWidth={440}
+        />
 
         {/* Tab bar */}
         <motion.div

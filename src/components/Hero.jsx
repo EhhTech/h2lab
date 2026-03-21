@@ -321,7 +321,7 @@ export default function Hero() {
         <div className="marquee-track">
           {[...techs, ...techs].map((t, i) => (
             <span
-              key={i}
+              key={`${t}-${i}`}
               style={{
                 padding: '0 28px',
                 fontSize: 11,

@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import SectionHeader from './SectionHeader'
 import {
   Smartphone,
   Globe,
@@ -679,10 +680,10 @@ function ProjectCard({ project, index, isFeatured }) {
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('all')
 
-  const filtered =
-    activeFilter === 'all'
-      ? projects
-      : projects.filter((p) => p.type === activeFilter)
+  const filtered = useMemo(
+    () => activeFilter === 'all' ? projects : projects.filter((p) => p.type === activeFilter),
+    [activeFilter]
+  )
 
   return (
     <section
@@ -693,41 +694,13 @@ export default function Portfolio() {
       }}
     >
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ textAlign: 'center', marginBottom: 48 }}
-        >
-          <div className="section-tag" style={{ justifyContent: 'center', marginBottom: 12 }}>
-            04 &mdash; Portafolio
-          </div>
-          <h2
-            style={{
-              fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.02em',
-              color: '#111',
-            }}
-          >
-            Nuestro trabajo
-          </h2>
-          <p
-            style={{
-              marginTop: 16,
-              fontSize: 16,
-              color: '#999',
-              maxWidth: 460,
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          >
-            Proyectos reales que demuestran nuestro compromiso con la calidad y
-            la innovacion.
-          </p>
-        </motion.div>
+        <SectionHeader
+          tag="04 — Portafolio"
+          title="Nuestro trabajo"
+          subtitle="Proyectos reales que demuestran nuestro compromiso con la calidad y la innovacion."
+          mb={48}
+          maxWidth={460}
+        />
 
         {/* Filter tabs */}
         <motion.div

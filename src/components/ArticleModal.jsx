@@ -24,17 +24,14 @@ function renderBlock(block, i) {
 }
 
 export default function ArticleModal({ post, onClose }) {
-  // Lock body scroll while open
   useEffect(() => {
     document.body.style.overflow = 'hidden'
-    return () => { document.body.style.overflow = '' }
-  }, [])
-
-  // Close on Escape
-  useEffect(() => {
     const handler = (e) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handler)
+    }
   }, [onClose])
 
   return (

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Target, Eye } from 'lucide-react'
+import SectionHeader from './SectionHeader'
 
 const cards = [
   {
@@ -28,31 +29,13 @@ export default function MisionVision() {
       }}
     >
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ textAlign: 'center', marginBottom: 72 }}
-        >
-          <div className="section-tag" style={{ justifyContent: 'center', marginBottom: 12 }}>
-            01 &mdash; Nosotros
-          </div>
-          <h2
-            style={{
-              fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.02em',
-              color: '#111',
-            }}
-          >
-            Quiénes somos
-          </h2>
-          <p style={{ marginTop: 16, fontSize: 16, color: '#999', maxWidth: 460, marginLeft: 'auto', marginRight: 'auto' }}>
-            Construimos tecnología con propósito, impulsados por una misión clara y una visión ambiciosa.
-          </p>
-        </motion.div>
+        <SectionHeader
+          tag="01 — Nosotros"
+          title="Quiénes somos"
+          subtitle="Construimos tecnología con propósito, impulsados por una misión clara y una visión ambiciosa."
+          mb={72}
+          maxWidth={460}
+        />
 
         {/* Cards container */}
         <div className="mv-cards-container">

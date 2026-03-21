@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Zap, Shield, Headphones, RefreshCw } from 'lucide-react'
+import SectionHeader from './SectionHeader'
 
 const features = [
   {
@@ -35,41 +36,13 @@ export default function Ofrecemos() {
       className="ofrecemos-section"
     >
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ textAlign: 'center', marginBottom: 64 }}
-        >
-          <div className="section-tag" style={{ justifyContent: 'center', marginBottom: 12 }}>
-            03 &mdash; Por qué elegirnos
-          </div>
-          <h2
-            style={{
-              fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.02em',
-              color: '#111',
-            }}
-          >
-            Lo que ofrecemos
-          </h2>
-          <p
-            style={{
-              marginTop: 16,
-              fontSize: 16,
-              color: '#999',
-              maxWidth: 480,
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          >
-            No solo escribimos codigo. Creamos soluciones digitales que
-            transforman negocios y generan resultados reales.
-          </p>
-        </motion.div>
+        <SectionHeader
+          tag="03 — Por qué elegirnos"
+          title="Lo que ofrecemos"
+          subtitle="No solo escribimos codigo. Creamos soluciones digitales que transforman negocios y generan resultados reales."
+          mb={64}
+          maxWidth={480}
+        />
 
         {/* Feature grid */}
         <div
