@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://h2lab.dev/sitemap.xml
+
+# Block common bots from crawling assets
+User-agent: *
+Disallow: /src/
+Disallow: /*.json$

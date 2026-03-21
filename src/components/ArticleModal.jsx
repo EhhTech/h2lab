@@ -40,6 +40,9 @@ export default function ArticleModal({ post, onClose }) {
   return (
     <motion.div
       key="article"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="article-title"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{    opacity: 0, y: 20 }}
@@ -119,6 +122,7 @@ export default function ArticleModal({ post, onClose }) {
           </span>
 
           <h1
+            id="article-title"
             style={{
               fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
               fontWeight: 700,

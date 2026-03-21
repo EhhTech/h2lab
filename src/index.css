@@ -572,6 +572,30 @@ a {
   font-weight: 400;
 }
 
+/* ── Focus visible (keyboard navigation) ────── */
+
+:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Loader spin ─────────────────────────────── */
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Hover only on pointer devices ──────────── */
+
+@media (hover: none) {
+  .portfolio-card:hover {
+    transform: none;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+    border-color: #e5e5e5;
+  }
+}
+
 /* ── Scrollbar ─────────────────────────────── */
 
 ::-webkit-scrollbar {

@@ -1,22 +1,136 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- ── Primary Meta ───────────────────────────────── -->
+    <title>H2Lab | Desarrollo de Software a Medida en México</title>
+    <meta name="description" content="H2Lab desarrolla apps móviles, sistemas POS, tiendas online, chatbots con IA y páginas web 100% personalizadas. Soluciones digitales a medida para tu negocio en México." />
+    <meta name="keywords" content="desarrollo de software, apps móviles, sistema POS, chatbot IA, tienda online, e-commerce, desarrollo a medida, software personalizado, México, agencia de software" />
+    <meta name="author" content="H2Lab" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://h2lab.dev/" />
+
+    <!-- ── Favicon & PWA ──────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <title>H2Lab - Software Profesional a Medida</title>
-    <meta name="description" content="H2Lab es una agencia de desarrollo de software a medida. Creamos apps, tiendas online, sistemas POS, chatbots y mas." />
-    <meta property="og:title" content="H2Lab - Software Profesional a Medida" />
-    <meta property="og:description" content="Desarrollo de software 100% a medida, sin plantillas. Apps, tiendas online, sistemas POS, chatbots y paginas web." />
+    <meta name="apple-mobile-web-app-title" content="H2Lab" />
+
+    <!-- ── Open Graph (Facebook / LinkedIn / WhatsApp) ── -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://h2lab.dev/" />
+    <meta property="og:site_name" content="H2Lab" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:title" content="H2Lab | Desarrollo de Software a Medida en México" />
+    <meta property="og:description" content="Desarrollamos apps móviles, sistemas POS, tiendas online, chatbots con IA y sitios web profesionales. Tecnología 100% personalizada para tu negocio." />
+    <meta property="og:image" content="https://h2lab.dev/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="H2Lab - Desarrollo de Software a Medida" />
+
+    <!-- ── Twitter Card ───────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@h2lab_" />
+    <meta name="twitter:title" content="H2Lab | Desarrollo de Software a Medida en México" />
+    <meta name="twitter:description" content="Apps móviles, sistemas POS, tiendas online, chatbots con IA y páginas web. Desarrollo 100% personalizado para tu negocio." />
+    <meta name="twitter:image" content="https://h2lab.dev/og-image.jpg" />
+
+    <!-- ── Geo / Regional ─────────────────────────────── -->
+    <meta name="geo.region" content="MX" />
+    <meta name="geo.placename" content="México" />
+    <meta name="language" content="Spanish" />
+
+    <!-- ── Structured Data: Organization ─────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareCompany",
+      "name": "H2Lab",
+      "alternateName": "H2Lab Software",
+      "url": "https://h2lab.dev",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://h2lab.dev/Logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Agencia de desarrollo de software a medida en México. Creamos apps móviles, sistemas POS, tiendas online, chatbots con inteligencia artificial y páginas web profesionales.",
+      "telephone": "+52-565-909-7415",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-565-909-7415",
+        "contactType": "customer service",
+        "availableLanguage": "Spanish",
+        "contactOption": "TollFree"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "MX",
+        "addressLocality": "México"
+      },
+      "sameAs": [
+        "https://www.instagram.com/h2lab_",
+        "https://www.facebook.com/share/17xETHTLEp/"
+      ],
+      "knowsAbout": [
+        "Desarrollo de aplicaciones móviles",
+        "Sistemas POS",
+        "E-commerce",
+        "Chatbots con IA",
+        "Desarrollo web",
+        "React",
+        "Flutter",
+        "Node.js",
+        "Firebase"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "México"
+      },
+      "foundingDate": "2022",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 10
+      }
+    }
+    </script>
+
+    <!-- ── Structured Data: WebSite ──────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "H2Lab",
+      "url": "https://h2lab.dev",
+      "description": "Desarrollo de software a medida en México",
+      "inLanguage": "es-MX",
+      "potentialAction": {
+        "@type": "CommunicateAction",
+        "target": "https://wa.me/525659097415"
+      }
+    }
+    </script>
+
+    <!-- ── Preconnect for performance ─────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="dns-prefetch" href="https://api.convertkit.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
   </head>
   <body>
+    <noscript>
+      <div style="padding:24px;text-align:center;font-family:sans-serif">
+        <h1>H2Lab | Desarrollo de Software a Medida</h1>
+        <p>Desarrollamos apps móviles, sistemas POS, tiendas online y chatbots personalizados para tu negocio en México.</p>
+        <p>Contáctanos: <a href="https://wa.me/525659097415">WhatsApp +52 565 909 7415</a></p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

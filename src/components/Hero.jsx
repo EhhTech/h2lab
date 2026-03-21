@@ -24,7 +24,7 @@ function AnimCounter({ to, suffix = '' }) {
         duration: 1.6,
         ease: [0.16, 1, 0.3, 1],
       })
-      return controls.stop
+      return () => controls.stop()
     }
   }, [isInView, count, to])
 
