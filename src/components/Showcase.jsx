@@ -97,9 +97,9 @@ export default function Showcase() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           style={{ textAlign: 'center', marginBottom: 56 }}
         >
-          <span style={{ display: 'block', marginBottom: 12, fontSize: 12, fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#aaa' }}>
-            Nuestros servicios
-          </span>
+          <div className="section-tag" style={{ justifyContent: 'center', marginBottom: 12 }}>
+            02 &mdash; Nuestros servicios
+          </div>
           <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 700, letterSpacing: '-0.02em', color: '#111' }}>
             Soluciones a tu medida
           </h2>

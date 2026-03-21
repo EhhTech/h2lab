@@ -152,14 +152,15 @@ export default function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
+                    className="nav-link"
                     style={{
                       fontSize: 13,
                       fontWeight: 500,
                       color: '#888',
-                      transition: 'color 0.2s',
+                      transition: 'color 0.25s',
                     }}
-                    onMouseEnter={(e) => (e.target.style.color = '#111')}
-                    onMouseLeave={(e) => (e.target.style.color = '#888')}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#111')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#888')}
                   >
                     {link.label}
                   </a>

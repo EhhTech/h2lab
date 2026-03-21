@@ -35,9 +35,9 @@ export default function Contact() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           style={{ textAlign: 'center', marginBottom: 48 }}
         >
-          <span style={{ display: 'block', marginBottom: 12, fontSize: 12, fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#aaa' }}>
-            Contacto
-          </span>
+          <div className="section-tag" style={{ justifyContent: 'center', marginBottom: 12 }}>
+            05 &mdash; Contacto
+          </div>
           <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 700, letterSpacing: '-0.02em', color: '#111' }}>
             Convierte tu idea en software
           </h2>

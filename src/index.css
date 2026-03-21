@@ -78,10 +78,25 @@ a {
 /* ── Text effects ──────────────────────────── */
 
 .gradient-text {
-  background: linear-gradient(135deg, #000000 0%, #555555 50%, #000000 100%);
+  background: linear-gradient(
+    135deg,
+    #000 0%,
+    #444 20%,
+    #999 40%,
+    #444 60%,
+    #000 80%,
+    #444 100%
+  );
+  background-size: 250% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradient-shift 6s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 250% center; }
 }
 
 /* ── Input styles (guaranteed visible) ─────── */
@@ -119,22 +134,22 @@ a {
   font-size: 14px;
   font-weight: 600;
   color: #fff;
-  background: #111;
+  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
   border: none;
   border-radius: 100px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .btn-primary:hover {
-  background: #333;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+  background: linear-gradient(135deg, #000 0%, #222 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .btn-primary:active {
-  transform: scale(0.97);
+  transform: scale(0.97) translateY(0);
 }
 
 .btn-secondary {
@@ -221,6 +236,111 @@ a {
 
 .animate-float-delayed {
   animation: float-delayed 8s ease-in-out infinite;
+}
+
+/* ── Shimmer badge ─────────────────────────── */
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.badge-shimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    #f8f8f8 0%,
+    #ffffff 30%,
+    #f0f0f0 50%,
+    #ffffff 70%,
+    #f8f8f8 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Section number label ──────────────────── */
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #bbb;
+}
+
+.section-tag::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: #e0e0e0;
+  flex-shrink: 0;
+}
+
+/* ── Tech marquee ──────────────────────────── */
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Animated nav link underline ───────────── */
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #111;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ── Feature number badge ──────────────────── */
+
+.feature-num {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #ccc;
+  margin-bottom: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Stats item ────────────────────────────── */
+
+.stat-divider {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, #e0e0e0, transparent);
+  flex-shrink: 0;
 }
 
 /* ── Responsive grid for Showcase ──────────── */

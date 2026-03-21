@@ -43,19 +43,9 @@ export default function Ofrecemos() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           style={{ textAlign: 'center', marginBottom: 64 }}
         >
-          <span
-            style={{
-              display: 'block',
-              marginBottom: 12,
-              fontSize: 12,
-              fontWeight: 500,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: '#aaa',
-            }}
-          >
-            Por que elegirnos
-          </span>
+          <div className="section-tag" style={{ justifyContent: 'center', marginBottom: 12 }}>
+            03 &mdash; Por qué elegirnos
+          </div>
           <h2
             style={{
               fontSize: 'clamp(1.8rem, 4vw, 3rem)',
@@ -92,6 +82,7 @@ export default function Ofrecemos() {
         >
           {features.map((feat, i) => {
             const Icon = feat.icon
+            const num = String(i + 1).padStart(2, '0')
             return (
               <motion.div
                 key={feat.title}
@@ -108,18 +99,23 @@ export default function Ofrecemos() {
                   background: '#fafafa',
                   borderRadius: 20,
                   border: '1px solid #f0f0f0',
-                  transition: 'border-color 0.3s, box-shadow 0.3s',
+                  transition: 'border-color 0.3s, box-shadow 0.3s, transform 0.3s',
+                  position: 'relative',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#e0e0e0'
-                  e.currentTarget.style.boxShadow =
-                    '0 8px 32px rgba(0,0,0,0.06)'
+                  e.currentTarget.style.borderColor = '#ddd'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.07)'
+                  e.currentTarget.style.transform = 'translateY(-4px)'
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = '#f0f0f0'
                   e.currentTarget.style.boxShadow = 'none'
+                  e.currentTarget.style.transform = 'translateY(0)'
                 }}
               >
+                {/* Number badge */}
+                <div className="feature-num">{num}</div>
+
                 <div
                   style={{
                     width: 48,
@@ -127,12 +123,12 @@ export default function Ofrecemos() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    background: '#f0f0f0',
+                    background: 'linear-gradient(135deg, #f0f0f0 0%, #ebebeb 100%)',
                     borderRadius: 14,
                     marginBottom: 20,
                   }}
                 >
-                  <Icon size={20} style={{ color: '#888' }} />
+                  <Icon size={20} style={{ color: '#777' }} />
                 </div>
                 <h3
                   style={{
