@@ -5,24 +5,43 @@ import { X, Mail, CheckCircle, AlertCircle, Loader } from 'lucide-react'
 const STORAGE_KEY = 'h2lab-newsletter-dismissed'
 const DELAY_MS    = 5000
 
-const CK_API_KEY  = import.meta.env.VITE_CONVERTKIT_API_KEY
-const CK_FORM_ID  = import.meta.env.VITE_CONVERTKIT_FORM_ID
+// Mailchimp list-manage URL from your embedded form (post-json endpoint)
+// Format: https://{dc}.list-manage.com/subscribe/post-json?u={u}&id={id}
+const MC_URL = import.meta.env.VITE_MAILCHIMP_URL
 
-async function subscribeToConvertKit(email) {
-  if (!CK_API_KEY || !CK_FORM_ID) {
-    // Keys not configured — simulate success so UX still works
-    await new Promise(r => setTimeout(r, 800))
-    return
-  }
-  const res = await fetch(
-    `https://api.convertkit.com/v3/forms/${CK_FORM_ID}/subscribe`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ api_key: CK_API_KEY, email }),
+function subscribeToMailchimp(email) {
+  return new Promise((resolve, reject) => {
+    if (!MC_URL) {
+      // Not configured yet — simulate success so UX works during dev
+      setTimeout(resolve, 900)
+      return
     }
-  )
-  if (!res.ok) throw new Error(`ConvertKit error ${res.status}`)
+
+    const cbName = `mc_cb_${Date.now()}`
+    const src    = `${MC_URL}&EMAIL=${encodeURIComponent(email)}&c=${cbName}`
+
+    const cleanup = () => {
+      delete window[cbName]
+      const el = document.getElementById(cbName)
+      if (el) el.remove()
+    }
+
+    window[cbName] = (data) => {
+      cleanup()
+      // Mailchimp returns result: 'success' | 'error'
+      if (data.result === 'success') resolve(data)
+      else reject(new Error(data.msg || 'Error al suscribirse'))
+    }
+
+    const script   = document.createElement('script')
+    script.id      = cbName
+    script.src     = src
+    script.onerror = () => { cleanup(); reject(new Error('Error de red')) }
+    document.head.appendChild(script)
+
+    // Timeout safety in case callback never fires
+    setTimeout(() => { cleanup(); reject(new Error('Timeout')) }, 8000)
+  })
 }
 
 export default function NewsletterModal() {
@@ -46,7 +65,7 @@ export default function NewsletterModal() {
     if (!email || status === 'loading') return
     setStatus('loading')
     try {
-      await subscribeToConvertKit(email)
+      await subscribeToMailchimp(email)
       setStatus('success')
       setTimeout(dismiss, 2800)
     } catch {
