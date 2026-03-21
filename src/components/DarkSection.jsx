@@ -235,17 +235,14 @@ export default function DarkSection() {
         alignItems: 'center',
       }}
     >
-      {/* Top fade from white */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0, left: 0, right: 0,
-          height: 120,
-          background: 'linear-gradient(to bottom, #fff 0%, transparent 100%)',
-          pointerEvents: 'none',
-          zIndex: 2,
-        }}
-      />
+      {/* Top diagonal divider: white triangle over black */}
+      <svg
+        viewBox="0 0 1440 80"
+        preserveAspectRatio="none"
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: 80, display: 'block', zIndex: 4, pointerEvents: 'none' }}
+      >
+        <polygon points="0,0 1440,0 0,80" fill="#ffffff" />
+      </svg>
 
       {/* Canvas */}
       <canvas
@@ -419,17 +416,14 @@ export default function DarkSection() {
         </motion.div>
       </div>
 
-      {/* Bottom fade to white */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0, left: 0, right: 0,
-          height: 120,
-          background: 'linear-gradient(to top, #fff 0%, transparent 100%)',
-          pointerEvents: 'none',
-          zIndex: 2,
-        }}
-      />
+      {/* Bottom diagonal divider: white triangle over black */}
+      <svg
+        viewBox="0 0 1440 80"
+        preserveAspectRatio="none"
+        style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: 80, display: 'block', zIndex: 4, pointerEvents: 'none' }}
+      >
+        <polygon points="1440,0 1440,80 0,80" fill="#ffffff" />
+      </svg>
     </section>
   )
 }

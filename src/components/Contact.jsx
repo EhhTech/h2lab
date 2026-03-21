@@ -36,7 +36,7 @@ export default function Contact() {
           style={{ textAlign: 'center', marginBottom: 48 }}
         >
           <div className="section-tag" style={{ justifyContent: 'center', marginBottom: 12 }}>
-            05 &mdash; Contacto
+            07 &mdash; Contacto
           </div>
           <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', fontWeight: 700, letterSpacing: '-0.02em', color: '#111' }}>
             Convierte tu idea en software
