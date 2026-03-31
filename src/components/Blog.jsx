@@ -45,27 +45,17 @@ export default function Blog() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="blog-card"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   background: '#fff',
-                  border: '1px solid #ebebeb',
                   borderRadius: 20,
                   padding: '28px 28px 24px',
                   textAlign: 'left',
                   color: 'inherit',
                   cursor: 'pointer',
-                  transition: 'transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s, border-color 0.3s',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-5px)'
-                  e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,0.07)'
-                  e.currentTarget.style.borderColor = '#ddd'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = 'none'
-                  e.currentTarget.style.borderColor = '#ebebeb'
                 }}
               >
                 {/* Category */}
@@ -138,6 +128,7 @@ export default function Blog() {
                   </div>
 
                   <div
+                    className="blog-arrow-wrap"
                     style={{
                       width: 32,
                       height: 32,
@@ -149,7 +140,7 @@ export default function Blog() {
                       flexShrink: 0,
                     }}
                   >
-                    <ArrowUpRight size={14} style={{ color: '#888' }} />
+                    <ArrowUpRight size={14} className="blog-arrow-icon" style={{ color: '#888' }} />
                   </div>
                 </div>
               </motion.button>

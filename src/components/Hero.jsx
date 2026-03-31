@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react'
-import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
+import { useRef, useEffect, useCallback } from 'react'
+import { motion, useInView, useMotionValue, useTransform, useSpring, animate } from 'framer-motion'
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -42,9 +42,30 @@ const stats = [
 ]
 
 export default function Hero() {
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const springCfg = { stiffness: 40, damping: 18 }
+  const orb1X = useSpring(useTransform(mouseX, [-1, 1], [-28, 28]), springCfg)
+  const orb1Y = useSpring(useTransform(mouseY, [-1, 1], [-18, 18]), springCfg)
+  const orb2X = useSpring(useTransform(mouseX, [-1, 1], [20, -20]), springCfg)
+  const orb2Y = useSpring(useTransform(mouseY, [-1, 1], [12, -12]), springCfg)
+
+  const handleMouseMove = useCallback((e) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect()
+    mouseX.set((e.clientX - left - width / 2) / (width / 2))
+    mouseY.set((e.clientY - top - height / 2) / (height / 2))
+  }, [mouseX, mouseY])
+
+  const handleMouseLeave = useCallback(() => {
+    mouseX.set(0)
+    mouseY.set(0)
+  }, [mouseX, mouseY])
+
   return (
     <section
       id="inicio"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       style={{
         position: 'relative',
         display: 'flex',
@@ -73,10 +94,9 @@ export default function Hero() {
         }}
       />
 
-      {/* Decorative orbs */}
+      {/* Decorative orbs — follow cursor */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-        <div
-          className="animate-float"
+        <motion.div
           style={{
             position: 'absolute',
             left: '10%',
@@ -85,10 +105,11 @@ export default function Hero() {
             height: 560,
             borderRadius: '50%',
             background: 'radial-gradient(circle, rgba(0,0,0,0.045) 0%, transparent 65%)',
+            x: orb1X,
+            y: orb1Y,
           }}
         />
-        <div
-          className="animate-float-delayed"
+        <motion.div
           style={{
             position: 'absolute',
             right: '8%',
@@ -97,6 +118,8 @@ export default function Hero() {
             height: 440,
             borderRadius: '50%',
             background: 'radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 65%)',
+            x: orb2X,
+            y: orb2Y,
           }}
         />
       </div>

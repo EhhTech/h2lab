@@ -123,18 +123,32 @@ export default function Showcase() {
                 gap: 8,
                 padding: '12px 22px',
                 fontSize: 13,
-                fontWeight: 500,
+                fontWeight: active === i ? 600 : 500,
                 borderRadius: 100,
                 border: 'none',
                 cursor: 'pointer',
-                transition: 'all 0.3s',
                 color: active === i ? '#fff' : '#888',
-                background: active === i ? '#111' : 'transparent',
-                boxShadow: active === i ? '0 4px 16px rgba(0,0,0,0.12)' : 'none',
+                background: 'transparent',
+                transition: 'color 0.15s',
               }}
             >
-              <tab.icon size={15} />
-              {tab.label}
+              {active === i && (
+                <motion.div
+                  layoutId="showcase-tab"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: '#111',
+                    borderRadius: 100,
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
+                  }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                />
+              )}
+              <span style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <tab.icon size={15} />
+                {tab.label}
+              </span>
             </button>
           ))}
         </motion.div>

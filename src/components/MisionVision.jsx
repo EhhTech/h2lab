@@ -61,7 +61,7 @@ export default function MisionVision() {
                   rotate: 0,
                   y: -6,
                   boxShadow: '0 20px 60px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.04)',
-                  transition: { duration: 0.3 },
+                  transition: { type: 'spring', stiffness: 400, damping: 30 },
                 }}
                 className="card-elevated mv-card"
                 style={{

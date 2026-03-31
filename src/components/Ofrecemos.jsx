@@ -67,23 +67,13 @@ export default function Ofrecemos() {
                   ease: [0.22, 1, 0.36, 1],
                   delay: i * 0.1,
                 }}
+                whileHover={{ y: -4 }}
+                className="ofrecemos-card"
                 style={{
                   padding: '36px 32px',
                   background: '#fafafa',
                   borderRadius: 20,
-                  border: '1px solid #f0f0f0',
-                  transition: 'border-color 0.3s, box-shadow 0.3s, transform 0.3s',
                   position: 'relative',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#ddd'
-                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.07)'
-                  e.currentTarget.style.transform = 'translateY(-4px)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#f0f0f0'
-                  e.currentTarget.style.boxShadow = 'none'
-                  e.currentTarget.style.transform = 'translateY(0)'
                 }}
               >
                 {/* Number badge */}

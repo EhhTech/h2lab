@@ -724,23 +724,38 @@ export default function Portfolio() {
                 key={f.id}
                 onClick={() => setActiveFilter(f.id)}
                 style={{
+                  position: 'relative',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 7,
                   padding: '10px 20px',
                   fontSize: 12.5,
-                  fontWeight: 500,
+                  fontWeight: active ? 600 : 500,
                   borderRadius: 100,
-                  border: active ? '1px solid #111' : '1px solid #e5e5e5',
+                  border: `1px solid ${active ? 'transparent' : '#e5e5e5'}`,
                   color: active ? '#fff' : '#888',
-                  background: active ? '#111' : '#fff',
-                  boxShadow: active ? '0 4px 16px rgba(0,0,0,0.12)' : 'none',
+                  background: 'transparent',
                   cursor: 'pointer',
-                  transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
+                  transition: 'color 0.15s, border-color 0.15s',
                 }}
               >
-                <FIcon size={14} />
-                {f.label}
+                {active && (
+                  <motion.div
+                    layoutId="filter-pill"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: '#111',
+                      borderRadius: 100,
+                      boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
+                    }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                  />
+                )}
+                <span style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: 7 }}>
+                  <FIcon size={14} />
+                  {f.label}
+                </span>
               </button>
             )
           })}

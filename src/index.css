@@ -586,6 +586,44 @@ a {
   to { transform: rotate(360deg); }
 }
 
+/* ── Ofrecemos feature cards ─────────────────── */
+
+.ofrecemos-card {
+  border: 1px solid #f0f0f0;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.ofrecemos-card:hover {
+  border-color: #ddd;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Blog cards ──────────────────────────────── */
+
+.blog-card {
+  border: 1px solid #ebebeb;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.blog-card:hover {
+  border-color: #ddd;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.07);
+}
+
+.blog-arrow-icon {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s;
+}
+
+.blog-card:hover .blog-arrow-icon {
+  transform: translate(2px, -2px);
+  color: #111 !important;
+}
+
+.blog-card:hover .blog-arrow-wrap {
+  background: #ebebeb;
+  transition: background 0.3s;
+}
+
 /* ── Hover only on pointer devices ──────────── */
 
 @media (hover: none) {
@@ -593,6 +631,16 @@ a {
     transform: none;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
     border-color: #e5e5e5;
+  }
+
+  .ofrecemos-card:hover {
+    border-color: #f0f0f0;
+    box-shadow: none;
+  }
+
+  .blog-card:hover {
+    border-color: #ebebeb;
+    box-shadow: none;
   }
 }
 

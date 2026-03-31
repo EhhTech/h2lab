@@ -1,5 +1,15 @@
 import { motion } from 'framer-motion'
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+}
+
 export default function SectionHeader({
   tag,
   title,
@@ -11,19 +21,21 @@ export default function SectionHeader({
   const centered = align === 'center'
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={container}
+      initial="hidden"
+      whileInView="show"
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       style={{ textAlign: centered ? 'center' : 'left', marginBottom: mb }}
     >
-      <div
+      <motion.div
+        variants={item}
         className="section-tag"
         style={{ justifyContent: centered ? 'center' : undefined, marginBottom: 12 }}
       >
         {tag}
-      </div>
-      <h2
+      </motion.div>
+      <motion.h2
+        variants={item}
         style={{
           fontSize: 'clamp(1.8rem, 4vw, 3rem)',
           fontWeight: 700,
@@ -33,9 +45,10 @@ export default function SectionHeader({
         }}
       >
         {title}
-      </h2>
+      </motion.h2>
       {subtitle && (
-        <p
+        <motion.p
+          variants={item}
           style={{
             marginTop: 16,
             fontSize: 16,
@@ -47,7 +60,7 @@ export default function SectionHeader({
           }}
         >
           {subtitle}
-        </p>
+        </motion.p>
       )}
     </motion.div>
   )
